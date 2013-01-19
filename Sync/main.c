@@ -5,28 +5,31 @@
 #include "sync.h"
 
 static void print_usage(void);
-static int parse_args(int, _TCHAR**, TCHAR*, TCHAR**);
+static int parse_args(int, _TCHAR**, TCHAR*, List*);
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	Playlist *list;
-	TCHAR *playlist_file = L"E:\\Documents and Settings\\All Users\\Documents\\My Music\\My Playlists\\current.m3u";	
+	TCHAR *playlist_file = malloc(MAX_PATH * sizeof(TCHAR));
 	List *dest_list = new_list();
-	TCHAR *c;
-	int i;
-
-	//add_item(dest_list, L"K:\\MUSIC\\*");
-	//add_item(dest_list, L"L:\\MUSIC\\*");
+	int err;
 
 	if(argc == 2 && wcsncmp(L"/?", argv[1], 2) == 0) {
 		print_usage();
 	}
 
 	if(argc > 2) {
-		
-	}
+		err = parse_args(argc, argv, playlist_file, dest_list);
 
-	//list = new_playlist(playlist_file);
-	//sync(list, dest_list);
+		if(err == -1) {
+			print_usage();
+		}
+
+		list = new_playlist(playlist_file);
+		sync(list, dest_list);
+	}
+	else {
+		print_usage();
+	}
 
 	//wait for user input
 	getchar();
@@ -39,24 +42,33 @@ static void print_usage() {
 	exit(0);
 }
 
-static int parse_args(int argc, _TCHAR *argv[], TCHAR *playlist_path, TCHAR *dests[]) {
+static int parse_args(int argc, const _TCHAR *argv[], TCHAR *playlist_path, List *dest_list) {
 	int i, j, k = 0;
-	int err;
+	TCHAR *dest;
 
 	for(i=1; i<argc; i++) {
-		if(wcscmp(L"-p", argv[i]) == 0) {
-			j = i + 1;
+		j = i + 1;
 
-			if(j < argc) {
-				wcscpy_s(playlist_path, MAX_PATH, argv[j]);
+		if(wcscmp(L"-p", argv[i]) == 0) {
+			if(i == 1) {
+				if(j < argc) {
+					wcscpy_s(playlist_path, MAX_PATH, argv[j]);
+					i = j;
+				}
+				else {
+					return -1;
+				}
 			}
 			else {
 				return -1;
 			}
-		}
-		else {
-			wcscpy_s(dests[k], 5, argv[i]);
-			k++;
-		}
+
+			continue;
+		}		
+		
+		dest = malloc(MAX_PATH * sizeof(TCHAR));
+		wcscpy_s(dest, MAX_PATH, argv[i]);
+		add_item(dest_list, dest);
+		
 	}
 }
