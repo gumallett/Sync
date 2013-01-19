@@ -28,4 +28,5 @@ FileEntry *new_fentry(const TCHAR *dir, const TCHAR *entry_name);
 uint64_t fentry_hashcode(const FileEntry *entry);
 
 
+
 #endif // !__PLAYLIST_H__
