@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sync\stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sync\list.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,9 +42,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sync\set.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sync\stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sync\sync.h">

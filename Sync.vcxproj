@@ -139,10 +139,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="sync\list.c" />
-    <ClCompile Include="sync\main.c" />
+    <ClCompile Include="sync\main.c">
+      <StringPooling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</StringPooling>
+      <StringPooling Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</StringPooling>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/favor:INTEL64 %(AdditionalOptions)</AdditionalOptions>
+      <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Release|x64'">FastCall</CallingConvention>
+    </ClCompile>
     <ClCompile Include="sync\playlist.c" />
     <ClCompile Include="sync\set.c" />
-    <ClCompile Include="sync\stdafx.cpp" />
     <ClCompile Include="sync\Sync.c" />
     <ClCompile Include="sync\util.c" />
   </ItemGroup>
@@ -150,7 +154,6 @@
     <ClInclude Include="sync\list.h" />
     <ClInclude Include="sync\playlist.h" />
     <ClInclude Include="sync\set.h" />
-    <ClInclude Include="sync\stdafx.h" />
     <ClInclude Include="sync\sync.h" />
     <ClInclude Include="sync\targetver.h" />
     <ClInclude Include="sync\util.h" />
