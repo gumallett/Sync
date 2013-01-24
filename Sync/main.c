@@ -1,17 +1,47 @@
+
+
+#define CINTERFACE
+#define COBJMACROS
+
+#ifdef __cplusplus
+#undef __cplusplus
+#endif
+
 #include "targetver.h"
 #include <stdio.h>
 #include <tchar.h>
 #include "playlist.h"
 #include "sync.h"
+#include <PortableDeviceApi.h>
+
+//#include <PortableDeviceConnectApi.h>
+#undef CINTERFACE
+#undef COBJMACROS
 
 static void print_usage(void);
 static int parse_args(int, _TCHAR**, TCHAR*, List*);
+
+static void test() {
+	HANDLE handle;
+
+	HRESULT result;
+	IPortableDeviceManager *mgr;
+	TCHAR *pmps[50];
+
+	FindVolumeClose(handle);
+
+	//result = CoCreateInstance(&CLSID_PortableDeviceManager, NULL, CLSCTX_INPROC_SERVER, &IID_IPortableDeviceManager, (LPVOID *) mgr);
+	//IPortableDeviceManager_GetDevices(mgr, NULL, &ids);
+	
+}
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	Playlist *list;
 	TCHAR *playlist_file = malloc(MAX_PATH * sizeof(TCHAR));
 	List *dest_list = new_list();
 	int err;
+
+	test();
 
 	if(argc == 2 && wcsncmp(L"/?", argv[1], 2) == 0) {
 		print_usage();
@@ -44,7 +74,7 @@ static void print_usage() {
 
 static int parse_args(int argc, const _TCHAR *argv[], TCHAR *playlist_path, List *dest_list) {
 	int i, j, k = 0;
-	TCHAR *dest;
+	DestStruct *dest;
 
 	for(i=1; i<argc; i++) {
 		j = i + 1;
@@ -66,9 +96,9 @@ static int parse_args(int argc, const _TCHAR *argv[], TCHAR *playlist_path, List
 			continue;
 		}		
 		
-		dest = malloc(MAX_PATH * sizeof(TCHAR));
-		wcscpy_s(dest, MAX_PATH, argv[i]);
-		add_item(dest_list, dest);
-		
+		dest = create_dest_struct(argv[i]);
+		add_item(dest_list, dest);	
 	}
+
+	return 1;
 }

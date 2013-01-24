@@ -25,6 +25,7 @@ int16_t fentry_compare(const FileEntry *item1, const FileEntry *item2);
 
 Playlist *new_playlist(TCHAR* filename);
 FileEntry *new_fentry(const TCHAR *dir, const TCHAR *entry_name);
+void destroy_fentry(FileEntry *entry);
 uint64_t fentry_hashcode(const FileEntry *entry);
 
 

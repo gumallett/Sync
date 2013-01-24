@@ -23,11 +23,11 @@ static TCHAR *set_full_path(const FileEntry *entry, const TCHAR *dir) {
 }
 
 uint64_t fentry_hashcode(const FileEntry *entry) {
-	uint64_t hash = 101;
+	uint64_t hash = 2166136261;
 	TCHAR *filename = entry->filename;
 
 	while(*filename) {
-		hash = hash * 7 + *filename++;
+		hash = (hash * 16777619) ^ *filename++;
 	}
 
 	//hash += last_modified(entry->full_path);
@@ -121,4 +121,11 @@ FileEntry *new_fentry(const TCHAR *dir, const TCHAR *entry_name) {
 	entry->full_path = set_full_path(entry, dir);
 
 	return entry;
+}
+
+void destroy_fentry(FileEntry *entry) {
+	free(entry->directory);
+	free(entry->filename);
+	free(entry->full_path);
+	free(entry);
 }
