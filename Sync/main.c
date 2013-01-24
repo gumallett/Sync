@@ -12,6 +12,11 @@
 #include <tchar.h>
 #include "playlist.h"
 #include "sync.h"
+
+#define inline __inline
+//#include <PortableDevice.h>
+#undef inline
+
 #include <PortableDeviceApi.h>
 
 //#include <PortableDeviceConnectApi.h>
@@ -19,20 +24,26 @@
 #undef COBJMACROS
 
 static void print_usage(void);
-static int parse_args(int, _TCHAR**, TCHAR*, List*);
+static int parse_args(int, const _TCHAR**, TCHAR*, List*);
 
-static void test() {
+static void COM_test() {
 	HANDLE handle;
-
 	HRESULT result;
-	IPortableDeviceManager *mgr;
-	TCHAR *pmps[50];
+	IPortableDeviceManager mgr;
+	DWORD ids;
 
-	FindVolumeClose(handle);
+	result = CoInitializeEx(0, COINIT_MULTITHREADED);
 
-	//result = CoCreateInstance(&CLSID_PortableDeviceManager, NULL, CLSCTX_INPROC_SERVER, &IID_IPortableDeviceManager, (LPVOID *) mgr);
-	//IPortableDeviceManager_GetDevices(mgr, NULL, &ids);
-	
+	if(result == S_OK) {
+		result = CoCreateInstance(&CLSID_PortableDeviceManager, 0, CLSCTX_INPROC_SERVER, &IID_IPortableDeviceManager, &mgr);
+
+		if(result == S_OK) {
+			result = mgr.lpVtbl->GetDevices(&mgr, 0, &ids);
+			
+		}
+	}
+
+	CoUninitialize();
 }
 
 int _tmain(int argc, _TCHAR* argv[]) {
@@ -41,7 +52,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	List *dest_list = new_list();
 	int err;
 
-	test();
+	COM_test();
 
 	if(argc == 2 && wcsncmp(L"/?", argv[1], 2) == 0) {
 		print_usage();
@@ -72,7 +83,7 @@ static void print_usage() {
 	exit(0);
 }
 
-static int parse_args(int argc, const _TCHAR *argv[], TCHAR *playlist_path, List *dest_list) {
+static int parse_args(int argc, const _TCHAR **argv, TCHAR *playlist_path, List *dest_list) {
 	int i, j, k = 0;
 	DestStruct *dest;
 
