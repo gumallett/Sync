@@ -29,7 +29,7 @@ static int parse_args(int, const _TCHAR**, TCHAR*, List*);
 static void COM_test() {
 	HANDLE handle;
 	HRESULT result;
-	IPortableDeviceManager mgr;
+	IPortableDeviceManager *mgr;
 	DWORD ids;
 
 	result = CoInitializeEx(0, COINIT_MULTITHREADED);
@@ -38,7 +38,7 @@ static void COM_test() {
 		result = CoCreateInstance(&CLSID_PortableDeviceManager, 0, CLSCTX_INPROC_SERVER, &IID_IPortableDeviceManager, &mgr);
 
 		if(result == S_OK) {
-			result = mgr.lpVtbl->GetDevices(&mgr, 0, &ids);
+			result = mgr->lpVtbl->GetDevices(mgr, 0, &ids);
 			
 		}
 	}
