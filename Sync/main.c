@@ -21,27 +21,11 @@
 static void print_usage(void);
 static int parse_args(int, _TCHAR**, TCHAR*, List*);
 
-static void test() {
-	HANDLE handle;
-
-	HRESULT result;
-	IPortableDeviceManager *mgr;
-	TCHAR *pmps[50];
-
-	FindVolumeClose(handle);
-
-	//result = CoCreateInstance(&CLSID_PortableDeviceManager, NULL, CLSCTX_INPROC_SERVER, &IID_IPortableDeviceManager, (LPVOID *) mgr);
-	//IPortableDeviceManager_GetDevices(mgr, NULL, &ids);
-	
-}
-
 int _tmain(int argc, _TCHAR* argv[]) {
 	Playlist *list;
 	TCHAR *playlist_file = malloc(MAX_PATH * sizeof(TCHAR));
 	List *dest_list = new_list();
 	int err;
-
-	test();
 
 	if(argc == 2 && wcsncmp(L"/?", argv[1], 2) == 0) {
 		print_usage();
