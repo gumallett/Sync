@@ -1,8 +1,3 @@
-
-
-#define CINTERFACE
-#define COBJMACROS
-
 #ifdef __cplusplus
 #undef __cplusplus
 #endif
@@ -12,11 +7,6 @@
 #include <tchar.h>
 #include "playlist.h"
 #include "sync.h"
-#include <PortableDeviceApi.h>
-
-//#include <PortableDeviceConnectApi.h>
-#undef CINTERFACE
-#undef COBJMACROS
 
 static void print_usage(void);
 static int parse_args(int, _TCHAR**, TCHAR*, List*);
