@@ -1,50 +1,12 @@
-
-
-#define CINTERFACE
-#define COBJMACROS
-
-#ifdef __cplusplus
-#undef __cplusplus
-#endif
-
 #include "targetver.h"
 #include <stdio.h>
 #include <tchar.h>
 #include "playlist.h"
 #include "sync.h"
-
-#define inline __inline
-//#include <PortableDevice.h>
-#undef inline
-
-#include <PortableDeviceApi.h>
-
-//#include <PortableDeviceConnectApi.h>
-#undef CINTERFACE
-#undef COBJMACROS
+#include "PortableDeviceCOM.h"
 
 static void print_usage(void);
 static int parse_args(int, const _TCHAR**, TCHAR*, List*);
-
-static void COM_test() {
-	HANDLE handle;
-	HRESULT result;
-	IPortableDeviceManager *mgr;
-	DWORD ids;
-
-	result = CoInitializeEx(0, COINIT_MULTITHREADED);
-
-	if(result == S_OK) {
-		result = CoCreateInstance(&CLSID_PortableDeviceManager, 0, CLSCTX_INPROC_SERVER, &IID_IPortableDeviceManager, &mgr);
-
-		if(result == S_OK) {
-			result = mgr->lpVtbl->GetDevices(mgr, 0, &ids);
-			
-		}
-	}
-
-	CoUninitialize();
-}
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	Playlist *list;

@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Sync\PortableDeviceCOM.c" />
     <ClCompile Include="sync\list.c" />
     <ClCompile Include="sync\main.c">
       <StringPooling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</StringPooling>
@@ -159,6 +160,7 @@
     <ClCompile Include="sync\util.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Sync\PortableDeviceCOM.h" />
     <ClInclude Include="sync\list.h" />
     <ClInclude Include="sync\playlist.h" />
     <ClInclude Include="sync\set.h" />
