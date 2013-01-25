@@ -14,7 +14,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	List *dest_list = new_list();
 	int err;
 
-	COM_test();
+	TCHAR ** ids = getDeviceIds();
 
 	if(argc == 2 && wcsncmp(L"/?", argv[1], 2) == 0) {
 		print_usage();

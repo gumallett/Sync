@@ -15,4 +15,5 @@
 #undef CINTERFACE
 #undef COBJMACROS
 
-void COM_test();
+TCHAR **getDeviceIds();
+TCHAR **getDeviceNames();
