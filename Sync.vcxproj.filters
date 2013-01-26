@@ -80,6 +80,27 @@
     <ClCompile Include="sync\util.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sync\src\list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sync\src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sync\src\playlist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sync\src\PortableDeviceCOM.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sync\src\set.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sync\src\Sync.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sync\src\util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Sync\ReadMe.txt" />
