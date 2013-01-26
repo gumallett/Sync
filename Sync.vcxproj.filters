@@ -15,13 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sync\PortableDeviceCOM.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sync\playlist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="sync\list.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sync\main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sync\playlist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sync\set.c">
@@ -51,6 +54,30 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sync\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\PortableDeviceCOM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\playlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\mem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\sync.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sync\include\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

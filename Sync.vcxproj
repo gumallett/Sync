@@ -91,7 +91,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>kernel32.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;Ole32.lib;PortableDeviceGUIDs.lib</AdditionalDependencies>
       <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
@@ -154,18 +154,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="sync\list.c" />
-    <ClCompile Include="sync\main.c">
-      <StringPooling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</StringPooling>
-      <StringPooling Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</StringPooling>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/favor:INTEL64 %(AdditionalOptions)</AdditionalOptions>
-      <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Release|x64'">FastCall</CallingConvention>
-    </ClCompile>
+    <ClCompile Include="sync\main.c" />
     <ClCompile Include="sync\playlist.c" />
+    <ClCompile Include="Sync\PortableDeviceCOM.c" />
     <ClCompile Include="sync\set.c" />
     <ClCompile Include="sync\Sync.c" />
     <ClCompile Include="sync\util.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Sync\include\list.h" />
+    <ClInclude Include="Sync\include\mem.h" />
+    <ClInclude Include="Sync\include\playlist.h" />
+    <ClInclude Include="Sync\include\PortableDeviceCOM.h" />
+    <ClInclude Include="Sync\include\set.h" />
+    <ClInclude Include="Sync\include\sync.h" />
+    <ClInclude Include="Sync\include\targetver.h" />
+    <ClInclude Include="Sync\include\util.h" />
     <ClInclude Include="sync\list.h" />
     <ClInclude Include="sync\playlist.h" />
     <ClInclude Include="sync\set.h" />
