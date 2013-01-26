@@ -3,9 +3,10 @@
 
 #include <tchar.h>
 #include <stdint.h>
-#include <Windows.h>
 
-#define bool uint16_t
+#define bool int
+#define true 1
+#define false 0
 #define ABS(x) (x < 0) ? -(x) : (x) 
 
 void die(const char *msg);

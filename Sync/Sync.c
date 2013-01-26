@@ -1,4 +1,4 @@
-
+﻿
 #include <tchar.h>
 #include "playlist.h"
 #include "util.h"
@@ -18,6 +18,7 @@ void sync(Playlist *playlist, List *destination_list) {
 	Set *file_set = new_set(DEFAULT_CAPACITY);
 	Set *filesToAdd, *filesToRemove;
 	Node *ptr;
+	char ch[100];
 	
 	LIST_FOR_EACH(ptr, destination_list) {
 		DestStruct *dest = (DestStruct *) ptr->data;
@@ -25,11 +26,20 @@ void sync(Playlist *playlist, List *destination_list) {
 	}
 
 	filesToAdd = set_diff(playlist->entries, file_set, (uint64_t (*)(const void *)) fentry_hashcode, (int16_t (*)(const void *, const void *)) fentry_compare);
-	printf("Files to add: %d\n", filesToAdd->size);
+	printf("\nFiles to add: \t%d\n", filesToAdd->size);
 	print_set(filesToAdd);
 	filesToRemove = set_diff(file_set, playlist->entries, (uint64_t (*)(const void *)) fentry_hashcode, (int16_t (*)(const void *, const void *)) fentry_compare);
-	printf("Files to remove: %d\n", filesToRemove->size);
+	printf("\nFiles to remove: \t%d\n", filesToRemove->size);
 	print_set(filesToRemove);
+	
+	do {
+		printf("Proceed (Y/N)? ");
+		fgets(ch, 100, stdin);
+	} while(ch[0] != 'N' && ch[0] != 'n' && ch[0] != 'Y' && ch[0] != 'y');
+
+	if(ch[0] == 'N' || ch[0] == 'n') {
+		return;
+	}
 
 	remove_files(filesToRemove);
 	add_files(filesToAdd, destination_list);
@@ -57,7 +67,7 @@ DestStruct *create_dest_struct(const TCHAR *path) {
 	err = GetDiskFreeSpaceEx(path, &disk_free_space, NULL, NULL);
 
 	if(!err) {
-		printf("Could not get disk free space from: %s", path);
+		printf("Could not get disk free space from: %s\n", path);
 		dest_struct->disk_free_space = 0;
 		return dest_struct;
 	}
@@ -89,16 +99,21 @@ static void put_files(Set *set, TCHAR *directory) {
 	WIN32_FIND_DATA file_info;
 	BOOL ret = TRUE;
 	TCHAR *filename;
+	TCHAR buf[MAX_PATH];
 
 	FileEntry *entry;
 	uint64_t hash;
 
-	file = FindFirstFile(directory, &file_info);
+	//append /* to directory names to search recursively
+	wcscpy_s(buf, MAX_PATH, directory);
+	wcscat_s(buf, MAX_PATH, L"\\*");
+
+	file = FindFirstFile(buf, &file_info);
 
 	while(ret && file != NULL && file != INVALID_HANDLE_VALUE) {
 		ret = FindNextFile(file, &file_info);
 		filename = file_info.cFileName;
-		directory = get_dir(directory);
+		directory = get_dir(buf);
 
 		if(wcscmp(filename, L".") == 0 || wcscmp(filename, L"..") == 0 || file_info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
 			continue;
@@ -147,7 +162,7 @@ static BOOL is_full(DestStruct *dest) {
 	success = GetDiskFreeSpaceEx(dest->path, &free_space, NULL, NULL);
 
 	if(!success) {
-		printf("Could not get disk free space for: %s", dest->path);
+		wprintf(L"Could not get disk free space for: %s", dest->path);
 		return dest->full;
 	}
 
@@ -171,7 +186,7 @@ static void remove_files(Set *files_to_remove) {
 		success = DeleteFile(entry->full_path);
 
 		if(!success) {
-			printf("Failed to delete file: %s", entry->full_path);
+			wprintf(L"Failed to delete file: %s", entry->full_path);
 		}
 	}
 }

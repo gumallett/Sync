@@ -17,7 +17,7 @@ static Entry *new_entry(uint64_t hash, void *item) {
 
 	e->hash = hash;
 	e->data = new_list();
-	add_item(e->data, item);
+	list_append(e->data, item);
 	return e;
 }
 
@@ -68,10 +68,10 @@ void set_add(Set *set, uint64_t hash, void *item) {
 		set->entries[idx] = e;
 	}
 	else {		
-		add_item(e->data, item);
+		list_append(e->data, item);
 	}
 
-	add_item(set->iterator, item);
+	list_append(set->iterator, item);
 	set->size++;
 }
 

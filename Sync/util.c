@@ -1,7 +1,7 @@
 #include "util.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <Windows.h>
 
 void die(const char *msg) {
 	printf(msg);
