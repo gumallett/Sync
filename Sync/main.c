@@ -3,7 +3,6 @@
 #include <tchar.h>
 #include "playlist.h"
 #include "sync.h"
-#include "PortableDeviceCOM.h"
 
 static void print_usage(void);
 static int parse_args(int, const _TCHAR**, TCHAR*, List*);
@@ -13,8 +12,6 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	TCHAR *playlist_file = malloc(MAX_PATH * sizeof(TCHAR));
 	List *dest_list = new_list();
 	int err;
-
-	//TCHAR ** ids = getDeviceIds();
 
 	if(argc == 2 && wcsncmp(L"/?", argv[1], 2) == 0) {
 		print_usage();

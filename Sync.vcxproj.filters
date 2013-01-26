@@ -33,9 +33,6 @@
     <ClCompile Include="sync\util.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sync\PortableDeviceCOM.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sync\list.h">
@@ -54,9 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sync\util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sync\PortableDeviceCOM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
