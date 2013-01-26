@@ -36,7 +36,18 @@ List *new_list();
 void free_list(List *list);
 
 /**
+	Adds an item to the end of the list
 **/
-void add_list_item(List *list, void *item);
+void list_append(List *list, void *item);
+
+/**
+	Adds an item to the beginning of the list
+**/
+void list_insert(List *list, void *item);
+
+/**
+	Removes and returns a pointer to the first element in the list
+**/
+void *pop(List *list);
 
 #endif // !__LIST_H__

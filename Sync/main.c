@@ -70,7 +70,7 @@ static int parse_args(int argc, const _TCHAR **argv, TCHAR *playlist_path, List 
 		}		
 		
 		dest = create_dest_struct(argv[i]);
-		add_list_item(dest_list, dest);	
+		list_append(dest_list, dest);	
 	}
 
 	return 1;

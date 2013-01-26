@@ -32,7 +32,7 @@ void free_list(List *list) {
 	}
 }
 
-void add_list_item(List *list, void *item) {
+void list_append(List *list, void *item) {
 	Node *node = new_node(item);
 	MEM_CHECK(node);
 
@@ -47,6 +47,38 @@ void add_list_item(List *list, void *item) {
 	}
 
 	list->size++;
+}
+
+void list_insert(List *list, void *item) {
+	Node *node = new_node(item);
+	MEM_CHECK(node);
+
+	if(list->head == NULL) {
+		list->head = node;
+		list->tail = node;
+	}
+	else {
+		node->next = list->head;
+		node->prev = NULL;
+		list->head = node;
+	}
+
+	list->size++;
+}
+
+void *pop(List *list) {
+	Node *ret = list->head;
+	void *data = ret->data;
+
+	free_node(ret);
+	list->head = list->head->next;
+
+	if(list->head == NULL) {
+		list->tail = NULL;
+	}
+
+	list->size--;
+	return data;
 }
 
 static Node *new_node(void *data) {
