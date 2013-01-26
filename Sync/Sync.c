@@ -1,4 +1,4 @@
-
+﻿
 #include <tchar.h>
 #include "playlist.h"
 #include "util.h"

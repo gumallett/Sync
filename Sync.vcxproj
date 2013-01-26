@@ -160,6 +160,7 @@
     <ClCompile Include="sync\util.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="mem.h" />
     <ClInclude Include="Sync\PortableDeviceCOM.h" />
     <ClInclude Include="sync\list.h" />
     <ClInclude Include="sync\playlist.h" />
