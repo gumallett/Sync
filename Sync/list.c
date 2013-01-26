@@ -4,14 +4,15 @@
 #include "util.h"
 #include "mem.h"
 
-_ME
-
+/** 
+	Allocates/frees a node for use in Linked List 
+**/
 static void free_node(Node *node);
 static Node *new_node(void *data);
 
 List *new_list() {
 	List *list = malloc(sizeof(List));
-	
+	MEM_CHECK(list);
 
 	list->head = NULL;
 	list->tail = NULL;
@@ -33,6 +34,7 @@ void free_list(List *list) {
 
 void add_list_item(List *list, void *item) {
 	Node *node = new_node(item);
+	MEM_CHECK(node);
 
 	if(list->head == NULL) {
 		list->head = node;
@@ -49,10 +51,7 @@ void add_list_item(List *list, void *item) {
 
 static Node *new_node(void *data) {
 	Node *node = malloc(sizeof(Node));
-
-	if(node == NULL) {
-		die("Could not allocate memory.");
-	}
+	MEM_CHECK(node);
 
 	node->data = data;
 	node->prev = NULL;

@@ -1,6 +1,9 @@
 #ifndef __MEM_H__
 #define __MEM_H__
 
-#define _MEM_CHECK(_item) (_item)
+#define MEM_CHECK(_item) \
+	if(_item == NULL) { \
+		die("Could not allocate memory."); \
+	}
 
 #endif

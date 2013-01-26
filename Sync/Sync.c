@@ -147,7 +147,7 @@ static BOOL is_full(DestStruct *dest) {
 	success = GetDiskFreeSpaceEx(dest->path, &free_space, NULL, NULL);
 
 	if(!success) {
-		printf("Could not get disk free space for: %s", dest->path);
+		wprintf(L"Could not get disk free space for: %s", dest->path);
 		return dest->full;
 	}
 
@@ -171,7 +171,7 @@ static void remove_files(Set *files_to_remove) {
 		success = DeleteFile(entry->full_path);
 
 		if(!success) {
-			printf("Failed to delete file: %s", entry->full_path);
+			wprintf(L"Failed to delete file: %s", entry->full_path);
 		}
 	}
 }

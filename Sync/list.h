@@ -37,6 +37,6 @@ void free_list(List *list);
 
 /**
 **/
-void add__list_item(List *list, void *item);
+void add_list_item(List *list, void *item);
 
 #endif // !__LIST_H__
