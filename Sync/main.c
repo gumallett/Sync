@@ -29,6 +29,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 		list = new_playlist(playlist_file);
 		sync(list, dest_list);
+		printf("Syncing Complete!\n");
 	}
 	else {
 		print_usage();
