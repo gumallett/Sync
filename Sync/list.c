@@ -1,8 +1,8 @@
 
 #include <stdlib.h>
-#include "list.h"
-#include "util.h"
-#include "mem.h"
+#include "include/list.h"
+#include "include/util.h"
+#include "include/mem.h"
 
 /** 
 	Allocates/frees a node for use in Linked List 

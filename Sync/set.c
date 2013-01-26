@@ -1,7 +1,8 @@
-#include "set.h"
-#include "list.h"
+
 #include <stdlib.h>
 #include <stdio.h>
+#include "include/set.h"
+#include "include/list.h"
 
 static void free_entry(Entry *e) {
 	free_list(e->data);

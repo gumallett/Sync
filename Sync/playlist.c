@@ -1,5 +1,5 @@
-#include "playlist.h"
-#include "util.h"
+#include "include/playlist.h"
+#include "include/util.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

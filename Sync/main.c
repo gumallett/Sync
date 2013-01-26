@@ -1,8 +1,9 @@
-﻿#include "targetver.h"
+﻿
 #include <stdio.h>
 #include <tchar.h>
-#include "playlist.h"
-#include "sync.h"
+#include "include/targetver.h"
+#include "include/playlist.h"
+#include "include/sync.h"
 
 static void print_usage(void);
 static int parse_args(int, const _TCHAR**, TCHAR*, List*);

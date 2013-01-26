@@ -1,11 +1,10 @@
-﻿
+﻿#include <Windows.h>
 #include <tchar.h>
-#include "playlist.h"
-#include "util.h"
-#include <Windows.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "sync.h"
+#include "include/playlist.h"
+#include "include/util.h"
+#include "include/sync.h"
 
 static void print_set(Set *set);
 static void copy_file(const FileEntry *src, const FileEntry *dest);
