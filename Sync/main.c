@@ -9,7 +9,7 @@
 #include "sync.h"
 
 static void print_usage(void);
-static int parse_args(int, _TCHAR**, TCHAR*, List*);
+static int parse_args(int, const _TCHAR**, TCHAR*, List*);
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	Playlist *list;
