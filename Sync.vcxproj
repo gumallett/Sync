@@ -153,15 +153,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="sync\list.c" />
-    <ClCompile Include="sync\main.c" />
-    <ClCompile Include="sync\playlist.c" />
-    <ClCompile Include="Sync\PortableDeviceCOM.c" />
-    <ClCompile Include="sync\set.c" />
-    <ClCompile Include="sync\Sync.c" />
-    <ClCompile Include="sync\util.c" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Sync\include\list.h" />
     <ClInclude Include="Sync\include\mem.h" />
     <ClInclude Include="Sync\include\playlist.h" />

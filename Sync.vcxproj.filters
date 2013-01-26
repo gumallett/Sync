@@ -15,29 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sync\PortableDeviceCOM.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sync\playlist.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sync\list.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sync\main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sync\set.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sync\Sync.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sync\util.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="sync\list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
