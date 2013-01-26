@@ -1,0 +1,3 @@
+#!/bin/sh
+
+"C:\Program Files (x86)\JetBrains\IntelliJ IDEA 12.0\bin\idea64.exe" merge $PWD/$1 $2 $PWD/$3 $PWD/$4
