@@ -168,6 +168,18 @@
     <ClInclude Include="sync\targetver.h" />
     <ClInclude Include="sync\util.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sync\list.c" />
+    <ClCompile Include="sync\main.c" />
+    <ClCompile Include="sync\playlist.c" />
+    <ClCompile Include="Sync\PortableDeviceCOM.c" />
+    <ClCompile Include="sync\set.c" />
+    <ClCompile Include="sync\Sync.c" />
+    <ClCompile Include="sync\util.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Sync\ReadMe.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
