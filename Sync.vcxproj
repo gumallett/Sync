@@ -153,36 +153,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Sync\include\list.h" />
-    <ClInclude Include="Sync\include\mem.h" />
-    <ClInclude Include="Sync\include\playlist.h" />
-    <ClInclude Include="Sync\include\PortableDeviceCOM.h" />
-    <ClInclude Include="Sync\include\set.h" />
-    <ClInclude Include="Sync\include\sync.h" />
-    <ClInclude Include="Sync\include\targetver.h" />
-    <ClInclude Include="Sync\include\util.h" />
-    <ClInclude Include="sync\list.h" />
-    <ClInclude Include="sync\playlist.h" />
-    <ClInclude Include="sync\set.h" />
-    <ClInclude Include="sync\sync.h" />
-    <ClInclude Include="sync\targetver.h" />
-    <ClInclude Include="sync\util.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sync\list.c" />
-    <ClCompile Include="sync\main.c" />
-    <ClCompile Include="sync\playlist.c" />
-    <ClCompile Include="Sync\PortableDeviceCOM.c" />
-    <ClCompile Include="sync\set.c" />
-    <ClCompile Include="Sync\src\list.c" />
-    <ClCompile Include="Sync\src\main.c" />
-    <ClCompile Include="Sync\src\playlist.c" />
-    <ClCompile Include="Sync\src\PortableDeviceCOM.c" />
-    <ClCompile Include="Sync\src\set.c" />
-    <ClCompile Include="Sync\src\Sync.c" />
-    <ClCompile Include="Sync\src\util.c" />
-    <ClCompile Include="sync\Sync.c" />
-    <ClCompile Include="sync\util.c" />
+    <ClInclude Include="Sync\src\include\list.h" />
+    <ClInclude Include="Sync\src\include\mem.h" />
+    <ClInclude Include="Sync\src\include\playlist.h" />
+    <ClInclude Include="Sync\src\include\set.h" />
+    <ClInclude Include="Sync\src\include\sync.h" />
+    <ClInclude Include="Sync\src\include\targetver.h" />
+    <ClInclude Include="Sync\src\include\util.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Sync\ReadMe.txt" />
