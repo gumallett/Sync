@@ -33,28 +33,28 @@
     <ClInclude Include="sync\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\PortableDeviceCOM.h">
+    <ClInclude Include="Sync\src\include\PortableDeviceCOM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\playlist.h">
+    <ClInclude Include="Sync\src\include\list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\list.h">
+    <ClInclude Include="Sync\src\include\mem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\mem.h">
+    <ClInclude Include="Sync\src\include\playlist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\util.h">
+    <ClInclude Include="Sync\src\include\set.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\set.h">
+    <ClInclude Include="Sync\src\include\sync.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\sync.h">
+    <ClInclude Include="Sync\src\include\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sync\include\targetver.h">
+    <ClInclude Include="Sync\src\include\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

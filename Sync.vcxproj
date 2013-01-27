@@ -153,17 +153,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Sync\include\list.h" />
-    <ClInclude Include="Sync\include\mem.h" />
-    <ClInclude Include="Sync\include\playlist.h" />
-    <ClInclude Include="Sync\include\PortableDeviceCOM.h" />
-    <ClInclude Include="Sync\include\set.h" />
-    <ClInclude Include="Sync\include\sync.h" />
-    <ClInclude Include="Sync\include\targetver.h" />
-    <ClInclude Include="Sync\include\util.h" />
+    <ClInclude Include="Sync\src\include\list.h" />
+    <ClInclude Include="Sync\src\include\mem.h" />
+    <ClInclude Include="Sync\src\include\playlist.h" />
+    <ClInclude Include="Sync\src\include\PortableDeviceCOM.h" />
     <ClInclude Include="sync\list.h" />
     <ClInclude Include="sync\playlist.h" />
     <ClInclude Include="sync\set.h" />
+    <ClInclude Include="Sync\src\include\set.h" />
+    <ClInclude Include="Sync\src\include\sync.h" />
+    <ClInclude Include="Sync\src\include\targetver.h" />
+    <ClInclude Include="Sync\src\include\util.h" />
     <ClInclude Include="sync\sync.h" />
     <ClInclude Include="sync\targetver.h" />
     <ClInclude Include="sync\util.h" />
