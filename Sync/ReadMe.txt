@@ -2,6 +2,9 @@
     CONSOLE APPLICATION : Sync Project Overview
 ========================================================================
 
+Sync is a small program for syncing playlist files, and the underlying media that make up the playlist, with portable devices. Emphasis
+is on speed and an easy to use CLI interface. Also, no reliance on 3rd party sync software (iTunes/etc). Currently Windows only.
+
 This file contains a summary of what you will find in each of the files that
 make up your Sync application.
 
