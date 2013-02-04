@@ -2,8 +2,6 @@
     CONSOLE APPLICATION : Sync Project Overview
 ========================================================================
 
-AppWizard has created this Sync application for you.
-
 This file contains a summary of what you will find in each of the files that
 make up your Sync application.
 
@@ -21,20 +19,32 @@ Sync.vcxproj.filters
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-Sync.cpp
+include/*
+	Header files, interface specifications.
+
+src/list.c
+	Implementation of a list data structure.
+src/set.c
+	Implementation of a Set data structure. Uses a hash table for internals.
+src/util.c
+	Various utility functions and macros.
+src/playlist.c
+	Implementation file for a playlist representation.
+src/Sync.c
+	Implementation file for synching to devices.
+src/main.c
     This is the main application source file.
 
 /////////////////////////////////////////////////////////////////////////////
 Other standard files:
 
-StdAfx.h, StdAfx.cpp
-    These files are used to build a precompiled header (PCH) file
-    named Sync.pch and a precompiled types file named StdAfx.obj.
 
 /////////////////////////////////////////////////////////////////////////////
 Other notes:
 
-AppWizard uses "TODO:" comments to indicate parts of the source code you
-should add to or customize.
+TODO:
+Add a CLI option for setting the target (in disk space) after which sync should stop transferring files to a device.
+Add support for other playlist file types.
+Document the interfaces.
 
 /////////////////////////////////////////////////////////////////////////////
